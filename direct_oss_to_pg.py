@@ -1,18 +1,11 @@
-import psycopg2
+from sqlalchemy import create_engine
 import pandas as pd
 
 # Read CSV
 df = pd.read_csv('/root/game_events.csv')
 
-# Connect to PostgreSQL
-conn = psycopg2.connect(
-    dbname="metabase",
-    user="metabase",
-    password="password",
-    host="localhost",
-    port="5432"
-)
+engine = create_engine('postgresql://metabase:password@localhost:5432/metabase')
 
 # Insert data
-df.to_sql('game_events', conn, if_exists='replace', index=False)
+df.to_sql('game_events', engine, if_exists='replace', index=False)
 conn.close()
