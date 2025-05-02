@@ -2,7 +2,7 @@ import psycopg2
 import pandas as pd
 
 # Read CSV
-df = pd.read_csv('game_events.csv')
+df = pd.read_csv('/root/game_events.csv')
 
 # Connect to PostgreSQL
 conn = psycopg2.connect(
