@@ -8,4 +8,3 @@ engine = create_engine('postgresql://metabase:password@localhost:5432/metabase')
 
 # Insert data
 df.to_sql('game_events', engine, if_exists='replace', index=False)
-conn.close()
